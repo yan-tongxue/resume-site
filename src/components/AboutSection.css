@@ -1,0 +1,220 @@
+.about {
+  background: var(--bg-secondary);
+  padding: 140px 0;
+  position: relative;
+}
+
+.about:before {
+  content: "";
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.about-grid {
+  grid-template-columns: 1fr 1.5fr;
+  align-items: start;
+  gap: 80px;
+  display: grid;
+}
+
+.about-left {
+  justify-content: center;
+  padding-top: 10px;
+  display: flex;
+}
+
+.about-avatar-wrapper {
+  width: 260px;
+  height: 260px;
+  position: relative;
+}
+
+.about-avatar {
+  border: 1px solid var(--border-light);
+  background: linear-gradient(135deg, #1a2030, #0e131c);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 260px;
+  transition: border-color 0.4s, box-shadow 0.4s;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-avatar:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 40px #5ea3f01a;
+}
+
+.avatar-placeholder {
+  color: #5ea3f040;
+  font-size: 5rem;
+  font-weight: 300;
+  font-family: var(--font-sans);
+  letter-spacing: 0.1em;
+}
+
+.about-right {
+  flex-direction: column;
+  display: flex;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.about-desc {
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.about-contact {
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(19,19,24,0.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-radius: 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 28px 0;
+  display: grid;
+  overflow: hidden;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.about-contact:hover {
+  border-color: rgba(94,163,240,0.35);
+  box-shadow: 0 0 30px rgba(94,163,240,0.1);
+}
+
+.contact-item {
+  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+  transition: background 0.3s;
+  display: flex;
+}
+
+.contact-item:nth-child(odd) {
+  border-right: 1px solid var(--border);
+}
+
+.contact-item:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.contact-item:hover {
+  background: #5ea3f008;
+}
+
+.contact-label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.contact-value {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.about-stats {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  display: grid;
+}
+
+.stat-item {
+  text-align: center;
+  cursor: default;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(19,19,24,0.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-radius: 10px;
+  padding: 20px 8px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s, box-shadow 0.4s, transform 0.3s;
+}
+
+.stat-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.4s ease;
+}
+
+.stat-item:hover {
+  border-color: rgba(94,163,240,0.4);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 24px rgba(94,163,240,0.12);
+  transform: translateY(-3px);
+}
+
+.stat-item:hover::after {
+  width: 50%;
+}
+
+.stat-item:hover .stat-value {
+  transform: scale(1.08);
+}
+
+.stat-value {
+  color: var(--accent);
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.stat-item:hover .stat-label {
+  color: var(--text-secondary);
+}
+
+@media (width <= 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-contact {
+    grid-template-columns: 1fr;
+  }
+  .contact-item:nth-child(odd) {
+    border-right: none;
+  }
+}
