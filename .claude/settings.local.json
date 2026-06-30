@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf node_modules package-lock.json)",
+      "Bash(npm install *)",
+      "Bash(npm view *)",
+      "Bash(npm run *)",
+      "Bash(npx pdf-parse *)",
+      "Bash(python -c \"import subprocess; subprocess.run\\(['pip','install','PyPDF2'],capture_output=True\\); from PyPDF2 import PdfReader; r=PdfReader\\('简历原件/颜松杰-工作经验3年.pdf'\\); [print\\(p.extract_text\\(\\)\\) for p in r.pages]\")",
+      "Bash(python -c \"import fitz; doc=fitz.open\\('简历原件/颜松杰-工作经验3年.pdf'\\); [print\\(page.get_text\\(\\)\\) for page in doc]\")",
+      "Bash(python -c \"import pdfplumber; pdf=pdfplumber.open\\('简历原件/颜松杰-工作经验3年.pdf'\\); [print\\(page.extract_text\\(\\)\\) for page in pdf.pages]\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"from PyPDF2 import PdfReader; r=PdfReader\\('E:/program/resume-site/简历原件/颜松杰-工作经验3年.pdf'\\); [print\\(p.extract_text\\(\\)\\) for p in r.pages]\")",
+      "Bash(python *)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npx vercel *)",
+      "Bash(npx vite *)"
+    ]
+  }
+}

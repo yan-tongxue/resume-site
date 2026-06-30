@@ -1,13 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import data from './data/resumeData';
 import './App.css';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import WorkExperience from './components/WorkExperience';
-import ProjectsSection from './components/ProjectsSection';
-import SkillsSection from './components/SkillsSection';
-import ContactSection from './components/ContactSection';
+
+const AboutSection = lazy(() => import('./components/AboutSection'));
+const WorkExperience = lazy(() => import('./components/WorkExperience'));
+const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
+const SkillsSection = lazy(() => import('./components/SkillsSection'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+
+function SectionFallback() {
+  return <div style={{ minHeight: '200px' }} />;
+}
 
 export default function App() {
   useEffect(() => {
@@ -19,11 +24,13 @@ export default function App() {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <WorkExperience />
-        <ProjectsSection />
-        <SkillsSection />
-        <ContactSection />
+        <Suspense fallback={<SectionFallback />}>
+          <AboutSection />
+          <WorkExperience />
+          <ProjectsSection />
+          <SkillsSection />
+          <ContactSection />
+        </Suspense>
       </main>
     </>
   );
